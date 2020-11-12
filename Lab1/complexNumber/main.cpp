@@ -2,7 +2,7 @@
 
 using namespace std;
 
-class Complex {
+struct Complex {
 private:
     int real;
     int imag;
@@ -29,29 +29,30 @@ public:
   return X;
 
   }
-  void printComplix(Complex c){
-      if(c.real>1 && c.imag>1){
-        cout<<c.real<<"+"<<c.imag<<"i"<<endl;
-      }
-      else if((c.real<0 && c.real!=-1) && (c.imag<0 && c.imag!=-1) ){
-        cout<<c.real<<c.imag<<"i"<<endl;
-      }
-      else if(c.real>0 && (c.imag<0 && c.imag!=-1) ){
-        cout<<c.real<<c.imag<<"i"<<endl;
-      }
-      else if( (c.real>0 || c.real<0) && c.imag==1){
+  void printComplix(){
 
-        cout<<c.real<<"+"<<"i"<<endl;
+      if(real>1 && imag>1){
+        cout<<real<<"+"<<imag<<"i"<<endl;
       }
-      else if( (c.real>0 || c.real<0)&& c.imag==-1){
+      else if((real<0 && real!=-1) && (imag<0 && imag!=-1) ){
+        cout<<real<<imag<<"i"<<endl;
+      }
+      else if(real>0 && (imag<0 && imag!=-1) ){
+        cout<<real<<imag<<"i"<<endl;
+      }
+      else if( (real>0 || real<0) && imag==1){
 
-        cout<<c.real<<"-"<<"i"<<endl;
+        cout<<real<<"+"<<"i"<<endl;
       }
-      else if(c.real==0 && c.imag>1 ){
-        cout<<c.imag<<"i"<<endl;
+      else if( (real>0 || real<0)&& imag==-1){
+
+        cout<<real<<"-"<<"i"<<endl;
       }
-      else if(c.imag==0 && c.real>1){
-        cout<<c.real<<endl;
+      else if(real==0 && imag>1 ){
+        cout<<imag<<"i"<<endl;
+      }
+      else if(imag==0 && real>1){
+        cout<<real<<endl;
       }
 
   }
@@ -80,13 +81,22 @@ int main()
     cin>>num1>>num2;
     c1.setReal(num1);
     c1.setImag(num2);
+    cout<<"RealNumber : "<<c1.getReal()<<endl;
+    cout<<"ImagenNumber : "<<c1.getImag()<<endl;
     cout<<"Please Enter Values of c2"<<endl;
     cin>>num1>>num2;
     c2.setReal(num1);
     c2.setImag(num2);
+    cout<<"RealNumber : "<<c2.getReal()<<endl;
+    cout<<"ImagenNumber : "<<c2.getImag()<<endl;
+    cout<<endl;
     c3=sumTwoNumbers(c1,c2);
     c4=c1.subTwoNumbers(c2);
-    cout<<"res : "<<" RealNumber: "<<c3.getReal()<<" ImagNumber: "<<c3.getImag()<<endl;
-    c4.printComplix(c4);
+
+    cout<<"The Result of Summation : "<<" ";c3.printComplix();cout<<endl;
+    cout<<"The Result of Substation : "<<" ";c4.printComplix();cout<<endl;
+    c1.printComplix();
+    c2.printComplix();
+
     return 0;
 }
