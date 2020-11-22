@@ -87,18 +87,17 @@ public:
             return Stk[Index];
     }
 
+
     Stack operator + (Stack &Right){
       Stack Append;int c=0;
       Append.Size=Tos+Right.Tos;
-      delete [] Append.Stk;
-      Append.Stk=new int [Append.Size];
       for(int i=0;i<Tos;i++){
-        Append.Stk[i]=Stk[i];
+        Append.Push(Stk[i]);
         c++;
       }
       int j=0;
       for(int i=c;i<Append.Size;i++){
-        Append.Stk[i]=Right.Stk[j];
+        Append.Push(Right.Stk[j]);
         j++;
 
       }
@@ -131,32 +130,28 @@ int Stack::Pop()
 int main()
 {
 
-    Stack S1(7),S2;
+    Stack S1(7),S2,S3,S4;
 
     S1.Push(3);
     S1.Push(5);
     S1.Push(7);
 
-   /** for ( int i=0 ; i < S1.GetTos();i++)
-       cout << S1[i] << endl;**/
-
-   /// S2 = S1;
-
-      S2.Push(3);
+    S2.Push(3);
     S2.Push(5);
     S2.Push(7);
-
-    ///cout<< S2.Pop() <<endl;
-
     S2.Push(11);
+    S2.Push(3);
 
-   // cout<< S1.Pop()<<endl;
+     S3 = S1;
+     cout<<"Elements of S3:"<<endl;
 
-  Stack S3=S1+S2;
-
-
- for ( int i=0 ; i < S3.getSize();i++)
+    for ( int i=0 ; i < S3.GetTos();i++)
        cout << S3[i] << endl;
+S4=S1+S2;   ///3 5 7 3 5 7 11 3
+
+cout<<"Elements of S4:"<<endl;
+ for ( int i=0 ; i < S4.getSize();i++)   ///don't print True values but values found S4,Stk[i]
+       cout << S4[i] << endl;
 
    return 0;
 }
