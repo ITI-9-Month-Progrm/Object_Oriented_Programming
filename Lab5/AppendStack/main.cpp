@@ -150,7 +150,7 @@ int main()
 S4=S1+S2;   ///3 5 7 3 5 7 11 3
 
 cout<<"Elements of S4:"<<endl;
- for ( int i=0 ; i < S4.getSize();i++)   ///don't print True values but values found S4,Stk[i]
+ for ( int i=0 ; i < S4.getSize();i++)   ///don't print True values but values found S4,Stk[i]  when use = in function
        cout << S4[i] << endl;
 
    return 0;
